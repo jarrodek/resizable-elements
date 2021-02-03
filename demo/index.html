@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Resizable element</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .demo {
+      background-color: bisque;
+      flex: 1;
+      margin: 40px;
+    }
+
+    .demo {
+      display: flex;
+    }
+
+    .resizable {
+      width: 260px;
+      border: 1px #ffc107 solid;
+    }
+
+    .page-content {
+      flex: 1;
+      border: 1px #009688 solid;
+    }
+
+    .page-aside {
+      width: 320px;
+      border: 1px #e91e63 solid;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>PoC for resizable elements</h1>
+    <article>
+      This page shows how resizable elements work in practice.<br/>
+
+      The resizable elements are controlled by the <code>resize</code> attribute which contains a list of values that indicate in which direction the element can be resized. Each value describe a geographical direction like <code>n</code> for North, <code>e</code> for East, and so forth.<br/>
+
+      The interaction is bases on changing the cursor to "resize" on the selected direction of the resize action. The the user can move the edge to the desired position. Once the resize action finishes, the element dispatches the <code>resize</code> event which authors can handle to persist user configuration.
+    </article>
+    <div class="demo">
+      <div class="resizable" resize="north east south west">
+        Navigation content
+      </div>
+      <div class="page-content" resize="north south">
+        Page content
+      </div>
+      <aside class="page-aside" resize="west">
+        Side content
+      </aside>
+    </div>
+  </main>
+  <script src="../polyfill.js"></script>
+</body>
+</html>

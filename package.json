@@ -1,0 +1,56 @@
+{
+  "name": "resizable-elements",
+  "version": "0.1.0",
+  "description": "A specification for a resizable elements. Elements that can resize through attributes set.",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0",
+    "start": "web-dev-server --app-index demo/index.html --node-resolve --open --watch --root-dir .",
+    "lint:eslint": "eslint --ext .js,.html . --ignore-path .gitignore",
+    "format:eslint": "eslint --ext .js,.html . --fix --ignore-path .gitignore",
+    "lint:types": "tsc",
+    "lint": "npm run lint:eslint",
+    "format": "npm run format:eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarrodek/resizable-elements.git"
+  },
+  "author": "Pawel Psztyc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrodek/resizable-elements/issues"
+  },
+  "homepage": "https://github.com/jarrodek/resizable-elements#readme",
+  "devDependencies": {
+    "@open-wc/eslint-config": "^4.2.0",
+    "@web/dev-server": "^0.1.5",
+    "eslint": "^7.19.0",
+    "eslint-config-prettier": "^7.2.0",
+    "typescript": "^4.1.3",
+    "typescript-lit-html-plugin": "^0.9.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@open-wc/eslint-config",
+      "eslint-config-prettier"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "demo/**/*.js",
+          "demo/**/*.html",
+          "test/**/*.js"
+        ],
+        "rules": {
+          "no-console": "off",
+          "no-unused-expressions": "off",
+          "no-plusplus": "off",
+          "no-param-reassing": "off",
+          "class-methods-use-this": "off",
+          "import/no-extraneous-dependencies": "off"
+        }
+      }
+    ]
+  }
+}
